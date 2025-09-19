@@ -1,6 +1,7 @@
 import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import axios from './../../../../../node_modules/axios/lib/axios';
+import { jwtDecode } from "jwt-decode";
 
 export const authOptions: NextAuthOptions = {
 
@@ -14,8 +15,14 @@ export const authOptions: NextAuthOptions = {
 
             async authorize(credentials, req) {
                 try {
-                    const res = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin',credentials);
-                    return res;                    
+                    const res = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin', credentials);
+                    const decoded: { id: string } = jwtDecode(res.data.token);
+                    return {
+                        id: decoded.id,
+                        name: res.data.user.name,
+                        email: res.data.user.email,
+                        tkn: res.data.token
+                    };
                 } catch (error) {
                     return null;
                 }
@@ -29,16 +36,24 @@ export const authOptions: NextAuthOptions = {
         })
     ],
 
-    // jwt: {
-    //     decode(params) {
-            
-    //     },
-    // },
+    callbacks: {
+        jwt(params) {
+            if (params.user) {
+                params.token.tkn = params.user.tkn;
+                params.token.userId = params.user.id;
+            }
+            return params.token;
+        },
 
+        session(params) {
+            params.session.user.id = params.token.userId;
+            return params.session;
+        },
+    },
 
-    // session: {
-        
-    // }
+    session: {
+        maxAge: 60 * 60 * 24 * 14,
+    }
 
 
 }

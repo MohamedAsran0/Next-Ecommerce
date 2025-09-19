@@ -5,11 +5,14 @@ import Link from "next/link";
 
 import logo from '@images/freshcart-logo.svg'
 import Image from "next/image";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function MyNavbar() {
+
+  const session = useSession();
+
   return (
-    <Navbar  rounded className="bg-gray-300 dark:bg-gray-300 py-4">
+    <Navbar rounded className="bg-gray-300 dark:bg-gray-300 py-4">
       <NavbarBrand>
         <Link href={'/'}>
           <Image src={logo} alt="Fresh Cart" />
@@ -22,13 +25,18 @@ export default function MyNavbar() {
 
         <Link className="hover:text-green-500" href={'/products'}>Products</Link>
 
-        <Link className="hover:text-green-500" href={'/login'}>Login</Link>
+        {session.status == 'unauthenticated' && <>
 
-        <Link className="hover:text-green-500" href={'/register'}>Register</Link>
+          <Link className="hover:text-green-500" href={'/login'}>Login</Link>
 
-        <Link className="hover:text-green-500" href={'/profile'}>Profile</Link>
+          <Link className="hover:text-green-500" href={'/register'}>Register</Link>
+        </>}
 
-        <span onClick={() => signOut() } className="hover:text-green-500 cursor-pointer">Logout</span>
+        {session.status == 'authenticated' && <>
+          <Link className="hover:text-green-500" href={'/profile'}>Profile</Link>
+
+          <span onClick={() => signOut({ redirect: true, callbackUrl: '/' })} className="hover:text-green-500 cursor-pointer">Logout</span>
+        </>}
 
       </NavbarCollapse>
     </Navbar>

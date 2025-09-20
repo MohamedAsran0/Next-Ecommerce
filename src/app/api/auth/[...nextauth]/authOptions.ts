@@ -1,6 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import axios from './../../../../../node_modules/axios/lib/axios';
+import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 
 export const authOptions: NextAuthOptions = {

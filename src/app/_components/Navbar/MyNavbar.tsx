@@ -19,23 +19,23 @@ export default function MyNavbar() {
         </Link>
       </NavbarBrand>
       <NavbarToggle />
-      <NavbarCollapse >
+      <NavbarCollapse>
 
-        <Link className="hover:text-green-500" href={'/'}>Home</Link>
+        <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/'}>Home</Link>
 
-        <Link className="hover:text-green-500" href={'/products'}>Products</Link>
+        <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/products'}>Products</Link>
 
         {session.status == 'unauthenticated' && <>
 
-          <Link className="hover:text-green-500" href={'/login'}>Login</Link>
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/login'}>Login</Link>
 
-          <Link className="hover:text-green-500" href={'/register'}>Register</Link>
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/register'}>Register</Link>
         </>}
 
         {session.status == 'authenticated' && <>
-          <Link className="hover:text-green-500" href={'/profile'}>Profile</Link>
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/profile'}>Profile</Link>
 
-          <span onClick={() => signOut({ redirect: true, callbackUrl: '/' })} className="hover:text-green-500 cursor-pointer">Logout</span>
+          <span onClick={() => signOut({ redirect: true, callbackUrl: '/' })} className="hover:text-green-500 cursor-pointer mx-auto pb-3 md:pb-0">Logout</span>
         </>}
 
       </NavbarCollapse>

@@ -1,6 +1,6 @@
 'use server';
 
-import axios from './../../../../node_modules/axios/lib/axios';
+import axios from 'axios';
 
 
 export async function handleForgetPasswordAction(values: {email: string}) {

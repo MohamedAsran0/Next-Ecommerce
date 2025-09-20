@@ -25,7 +25,7 @@ export default function Pagination({ maxPage }: { maxPage: number }) {
                 className="group p-[4px] rounded-[12px] bg-gradient-to-b from-white to-stone-200/40 shadow disabled:opacity-50"
             >
                 <div className="bg-gradient-to-b from-stone-200/40 to-white/80 rounded-[8px] px-5 py-2 flex gap-2 items-center">
-                    <span className="font-semibold">{isPending ? <ClipLoader size={20} /> : "Previous"}</span>
+                    <span className="font-semibold">{isPending && currentPage === 2? <ClipLoader size={20} /> : "Previous"}</span>
                 </div>
             </button>
 
@@ -35,7 +35,7 @@ export default function Pagination({ maxPage }: { maxPage: number }) {
                 className="group p-[4px] rounded-[12px] bg-gradient-to-b from-white to-stone-200/40 shadow disabled:opacity-50"
             >
                 <div className="bg-gradient-to-b from-stone-200/40 to-white/80 rounded-[8px] px-5 py-2 flex gap-2 items-center">
-                    <span className="font-semibold">{isPending ? <ClipLoader size={20} /> : "Next"}</span>
+                    <span className="font-semibold">{isPending && currentPage === 1 ? <ClipLoader size={20} /> : "Next"}</span>
                 </div>
             </button>
         </div>

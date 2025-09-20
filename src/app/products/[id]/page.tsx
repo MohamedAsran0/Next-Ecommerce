@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default async function productDetails({ params }: { params: { id: string } }) {
     const {id} = await params;
-    console.log(id);
+    // console.log(id);
 
     const product = await getSpecificProduct(id);
     return (
@@ -27,7 +27,7 @@ export default async function productDetails({ params }: { params: { id: string 
                             <h2 className='text-4xl font-bold mb-2'>{product.title}</h2>
                             <p className="text-lg font-normal text-gray-700 dark:text-gray-400">{product.description}</p>
 
-                            {!!product.priceAfterDiscount && <h5 className="font-normal dark:text-gray-400">
+                            {!!product.priceAfterDiscount && <h5 className="text-lg font-normal dark:text-gray-400">
                                 Price: <span className="text-red-600 line-through opacity-60">{product.price}</span> <span className="text-green-600">{product.priceAfterDiscount}</span>
                             </h5>}
 

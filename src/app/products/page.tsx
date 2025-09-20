@@ -1,15 +1,20 @@
-import React from 'react'
 import ProductCard from './../_components/ProductCard/ProductCard';
 import { getAllProducts } from '@/services/products.service';
 import Pagination from '../_components/Pagination/Pagination';
+import { allProductsOptionsType } from '@/types/product.type';
 
 export default async function products({ searchParams }: { searchParams: { page?: string } }) {
 
   const params = await searchParams;
 
   const currentPage = Number(params.page) || 1;
-  const products = await getAllProducts(currentPage as 1 | 2);
 
+  const allProductsOptions : allProductsOptionsType = {
+    page: currentPage as 1 | 2,
+  }
+
+  const products = await getAllProducts(allProductsOptions);
+  
   return (
     <>
       <div className='container w-11/12 mx-auto py-16'>

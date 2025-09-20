@@ -1,7 +1,7 @@
 export type ProductType = {
   sold: number,
   images: string[],
-  subcategory: ProductSubcategoryType[],
+  subcategory: SubcategoryType[],
   ratingsQuantity: number,
   _id: string,
   title: string,
@@ -11,31 +11,39 @@ export type ProductType = {
   price: number,
   priceAfterDiscount?: number,
   imageCover: string,
-  category: ProductCategoryType,
-  brand: ProductBrandType,
+  category: CategoryType,
+  brand: BrandType,
   ratingsAverage: number,
   createdAt: string,
   updatedAt: string,
   id: string,
 }
 
-export type ProductSubcategoryType = {
+export type SubcategoryType = {
   _id: string,
   name: string,
   slug: string,
   category: string,
 }
 
-export type ProductCategoryType = {
+export type CategoryType = {
   _id: string,
   name: string,
   slug: string,
   image: string,
 }
 
-export type ProductBrandType = {
+export type BrandType = {
   _id: string,
   name: string,
   slug: string,
   image: string,
+}
+
+export type allProductsOptionsType = {
+    page?: 1 | 2,
+    limit?: number,
+    brand?: string,
+    category?: string,
+    subcategory?: string,
 }

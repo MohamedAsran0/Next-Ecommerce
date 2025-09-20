@@ -25,6 +25,8 @@ export default function MyNavbar() {
 
         <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/products'}>Products</Link>
 
+        <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/brands'}>Brands</Link>
+
         {session.status == 'unauthenticated' && <>
 
           <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/login'}>Login</Link>

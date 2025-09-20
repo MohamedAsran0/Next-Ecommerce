@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       new URL('https://ecommerce.routemisr.com/Route-Academy-products/**'),
       new URL('https://ecommerce.routemisr.com/Route-Academy-brands/**'),
+      new URL('https://ecommerce.routemisr.com/Route-Academy-categories/**'),
      ]
   }
 };

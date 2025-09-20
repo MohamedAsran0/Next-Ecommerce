@@ -16,9 +16,6 @@ export async function getAllProducts(options: allProductsOptionsType = optionsDe
     if (page) query.append("page", page.toString());
     if (limit) query.append("limit", limit.toString());
 
-    console.log(page);
-    
-
     if (brand) query.append("brand", brand);
     if (category) query.append("category", category);
     if (subcategory) query.append("subcategory", subcategory);

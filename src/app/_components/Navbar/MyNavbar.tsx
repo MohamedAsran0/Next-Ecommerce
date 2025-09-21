@@ -7,7 +7,7 @@ import logo from '@images/freshcart-logo.svg'
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 
-import { FaShoppingCart } from "react-icons/fa";
+import { CiShoppingCart  } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 
 
@@ -16,7 +16,7 @@ export default function MyNavbar() {
   const session = useSession();
 
   return (
-    <Navbar rounded className="bg-gray-300 dark:bg-gray-300 py-4">
+    <Navbar rounded className="bg-gray-300 dark:bg-gray-300 py-4 fixed z-50 left-0 right-0">
       <NavbarBrand>
         <Link href={'/'}>
           <Image src={logo} alt="Fresh Cart" />
@@ -41,7 +41,7 @@ export default function MyNavbar() {
         </>}
 
         {session.status == 'authenticated' && <>
-          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/cart'}><FaShoppingCart className="text-2xl" /></Link>
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0 flex items-center gap-1" href={'/cart'}><CiShoppingCart  className="text-lg inline" /> <p>Cart</p></Link>
 
           <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/profile'}><CgProfile className="text-2xl" /></Link>
 

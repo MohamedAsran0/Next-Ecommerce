@@ -15,6 +15,7 @@ export async function getUserCart() {
     return {
         numOfCartItems: res.numOfCartItems as number,
         products: res.data.products as ItemType[],
-        totalCartPrice: res.data.totalCartPrice as number
+        totalCartPrice: res.data.totalCartPrice as number,
+        cartId: res.cartId as string
     };
 }

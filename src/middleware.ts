@@ -16,6 +16,6 @@ export default async function middleware(req: NextRequest) {
 
 
 export const config = {
-    matcher: ['/cart', '/profile']
+    matcher: ['/cart:path*', '/profile']
 };
 

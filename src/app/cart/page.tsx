@@ -8,7 +8,7 @@ import CheckoutBtn from "./CheckoutBtn";
 
 export default async function cart() {
 
-  const {numOfCartItems, products, totalCartPrice} = await getUserCart();
+  const {numOfCartItems, products, totalCartPrice, cartId} = await getUserCart();
 
   return (
     <div className="container mx-auto py-20 px-5">
@@ -67,10 +67,10 @@ export default async function cart() {
           </div>
 
           {/* Clear Cart Button */}
-          <ClearCartBtn />
+          <ClearCartBtn items={numOfCartItems} />
 
           {/* Checkout Button */}
-          <CheckoutBtn />
+          <CheckoutBtn cartId={cartId} items={numOfCartItems} />
         </div>
       </div>
     </div>

@@ -7,6 +7,10 @@ import logo from '@images/freshcart-logo.svg'
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 
+import { FaShoppingCart } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+
+
 export default function MyNavbar() {
 
   const session = useSession();
@@ -37,7 +41,10 @@ export default function MyNavbar() {
         </>}
 
         {session.status == 'authenticated' && <>
-          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/profile'}>Profile</Link>
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/cart'}><FaShoppingCart className="text-2xl" /></Link>
+
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/profile'}><CgProfile className="text-2xl" /></Link>
+
 
           <span onClick={() => signOut({ redirect: true, callbackUrl: '/' })} className="hover:text-green-500 cursor-pointer mx-auto pb-3 md:pb-0">Logout</span>
         </>}

@@ -1,8 +1,9 @@
+import AddToCartBtn from '@/app/_components/AddToCartBtn/AddToCartBtn';
 import { getSpecificProduct } from '@/services/products.service';
 import Image from 'next/image';
 
 export default async function productDetails({ params }: { params: { id: string } }) {
-    const {id} = await params;
+    const { id } = await params;
     // console.log(id);
 
     const product = await getSpecificProduct(id);
@@ -25,7 +26,7 @@ export default async function productDetails({ params }: { params: { id: string 
                         </div>
                         <div className='md:col-span-8 flex flex-col justify-center'>
                             <h2 className='text-4xl font-bold mb-2'>{product.title}</h2>
-                            <p className="text-lg font-normal text-gray-700 dark:text-gray-400">{product.description}</p>
+                            <p className="text-lg font-normal text-gray-700 dark:text-gray-400 my-3">{product.description}</p>
 
                             {!!product.priceAfterDiscount && <h5 className="text-lg font-normal dark:text-gray-400">
                                 Price: <span className="text-red-600 line-through opacity-60">{product.price}</span> <span className="text-green-600">{product.priceAfterDiscount}</span>
@@ -42,6 +43,10 @@ export default async function productDetails({ params }: { params: { id: string 
                             <h5 className="text-lg font-normal dark:text-gray-400">
                                 Rate: <span className="text-yellow-600">{product.ratingsAverage}</span>
                             </h5>
+
+                            <div className='mt-5 w-full'>
+                                <AddToCartBtn id={id} />
+                            </div>
 
 
                         </div>

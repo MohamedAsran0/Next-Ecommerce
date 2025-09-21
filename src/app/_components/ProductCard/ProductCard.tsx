@@ -4,6 +4,7 @@ import { Card } from "flowbite-react";
 import Image from "next/image";
 import { ProductType } from '@/types/product.type';
 import ProductLink from "../ProductLink/ProductLink";
+import AddToCartBtn from "../AddToCartBtn/AddToCartBtn";
 
 type ProductCardProps = {
     product: ProductType,
@@ -35,8 +36,8 @@ export default function ProductCard({ product }: ProductCardProps) {
 
 
 
-                {/* <button>add to cart</button> */}
                 <ProductLink id={product.id} />
+                <AddToCartBtn id={product.id} />
             </Card>
 
 

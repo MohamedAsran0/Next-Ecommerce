@@ -41,7 +41,11 @@ export default function MyNavbar() {
         </>}
 
         {session.status == 'authenticated' && <>
+        
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/allorders'}>All Orders</Link>
+
           <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0 flex items-center gap-1" href={'/cart'}><CiShoppingCart  className="text-lg inline" /> <p>Cart</p></Link>
+
 
           <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/profile'}><CgProfile className="text-2xl" /></Link>
 

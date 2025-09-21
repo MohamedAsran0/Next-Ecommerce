@@ -27,11 +27,11 @@ export default function ProductCard({ product }: ProductCardProps) {
                 </p>
 
                 {!!product.priceAfterDiscount && <p className="font-normal dark:text-gray-400">
-                    Price: <span className="text-red-600 line-through opacity-60">{product.price}</span> <span className="text-green-600">{product.priceAfterDiscount}</span>
+                    Price: <span className="text-red-600 line-through opacity-60">{product.price}</span> <span className="text-green-600">{product.priceAfterDiscount}</span> $
                 </p>}
 
                 {!!!product.priceAfterDiscount && <p className="font-normal dark:text-gray-400">
-                    Price: <span className="text-green-600">{product.price}</span>
+                    Price: <span className="text-green-600">{product.price}</span> $
                 </p>}
 
 

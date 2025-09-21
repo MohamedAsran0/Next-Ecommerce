@@ -33,7 +33,7 @@ export async function creditPaymentAction(values : CheckoutUserType, id: string)
     const token = await getUserToken();
 
     try {
-        const res = await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=http://localhost:3000`,{
+        const res = await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=${process.env.MY_DOMAIN}`,{
             shippingAddress: values
         }, {
             headers: {

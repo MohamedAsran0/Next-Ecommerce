@@ -9,7 +9,7 @@ export default async function productDetails({ params }: { params: { id: string 
     const product = await getSpecificProduct(id);
     return (
         <>
-            <div className='container p-10'>
+            <div className='container p-10 pt-20'>
 
                 <div className='bg-gray-400 rounded-3xl p-14 mx-auto'>
 
@@ -29,11 +29,11 @@ export default async function productDetails({ params }: { params: { id: string 
                             <p className="text-lg font-normal text-gray-700 dark:text-gray-400 my-3">{product.description}</p>
 
                             {!!product.priceAfterDiscount && <h5 className="text-lg font-normal dark:text-gray-400">
-                                Price: <span className="text-red-600 line-through opacity-60">{product.price}</span> <span className="text-green-600">{product.priceAfterDiscount}</span>
+                                Price: <span className="text-red-600 line-through opacity-60">{product.price}</span> <span className="text-green-600">{product.priceAfterDiscount}</span> $
                             </h5>}
 
                             {!!!product.priceAfterDiscount && <h5 className="text-lg dark:text-gray-400">
-                                Price: <span className="text-green-600">{product.price}</span>
+                                Price: <span className="text-green-600">{product.price}</span> $
                             </h5>}
 
                             <h5 className="text-lg font-normal dark:text-gray-400">

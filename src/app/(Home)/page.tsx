@@ -13,16 +13,29 @@ import ProductCard from "../_components/ProductCard/ProductCard";
 import { getAllBrands } from "@/services/brands.service";
 import BrandCard from "../_components/BrandCard/BrandCard";
 import CategoryCard from "../_components/CategoryCard/CategoryCard";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/authOptions";
+import { getUserWishlist } from "@/services/wishlist.service";
 
 const imgList = [img1.src, img2.src, img3.src];
 
 export default async function Home() {
 
+  const session = await getServerSession(authOptions);
+
+  let wishlistProducts = null;
+  
+  if (session) {
+    wishlistProducts = await getUserWishlist();
+
+  }
+
   const categories = await getAllCategories();
 
   const products = await getAllProducts({ limit: 10 });
 
-  const brands = await getAllBrands(1,10);
+
+  const brands = await getAllBrands(1, 10);
 
   const categoriesImgList = categories.map(category => category.image);
 
@@ -61,7 +74,14 @@ export default async function Home() {
           </div>
 
           <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-10 mt-10'>
-            {products.map(product => <ProductCard key={product.id} product={product} />)}
+            {/* {products.map(product => <ProductCard key={product.id} product={product} />)} */}
+            {products.map(product => {
+              const isWishlisted = wishlistProducts?.some(
+                (wish) => wish.id === product.id
+              );
+
+              return isWishlisted ? <ProductCard key={product.id} product={product} isInWishlist/> : <ProductCard key={product.id} product={product} /> 
+            })}
           </div>
 
         </div>

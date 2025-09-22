@@ -39,14 +39,14 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         jwt(params) {
             if (params.user) {
-                params.token.tkn = params.user.tkn;
                 params.token.userId = params.user.id;
+                params.token.tkn = params.user.tkn;
             }
             return params.token;
         },
 
         session(params) {
-            params.session.user.id = params.token.userId;
+            params.session.user.id = params.token.userId as string;
             return params.session;
         },
     },

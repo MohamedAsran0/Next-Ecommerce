@@ -11,7 +11,7 @@ export default async function allorders() {
 
     await fetch(`${process.env.MY_DOMAIN}api/revalidate-cart`);
 
-    const allOrders = await getUserOrders(session?.user?.id);
+    const allOrders = await getUserOrders(session?.user?.id || '');
 
     if (allOrders.length == 0) {
         return (

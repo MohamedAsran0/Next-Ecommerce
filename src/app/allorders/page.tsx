@@ -13,6 +13,14 @@ export default async function allorders() {
 
     const allOrders = await getUserOrders(session?.user?.id);
 
+    if (allOrders.length == 0) {
+        return (
+            <div className="container mx-auto px-5 py-16">
+                <h2 className='text-3xl w-full text-center pb-20 pt-15'>No Orders Yet</h2>
+            </div>
+        )
+    }
+
     return (
         <div className="container mx-auto px-5 py-16">
             <h2 className="text-center font-extrabold text-5xl bg-gradient-to-br from-green-600 to-gray-500 bg-clip-text text-transparent  pb-20 pt-15">

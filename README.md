@@ -21,7 +21,7 @@ It provides users with a smooth shopping experience, secure authentication, cart
 - **Frontend:** Next.js 14, React 18, TypeScript, TailwindCSS, ShadCN/UI  
 - **State Management:** React Hook Form, Zod (validation), React Query  
 - **Backend API:** Route Misr E-Commerce API
-- **Styling & UI:** TailwindCSS, SweetAlert2, React Spinners  
+- **Styling & UI:** TailwindCSS, Flowbite React, ShadCN, SweetAlert2, React Spinners  
 
 ---
 

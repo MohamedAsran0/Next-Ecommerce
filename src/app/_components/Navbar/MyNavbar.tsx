@@ -7,7 +7,7 @@ import logo from '@images/freshcart-logo.svg'
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 
-import { CiShoppingCart  } from "react-icons/ci";
+import { CiHeart, CiShoppingCart  } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
 
 
@@ -42,9 +42,11 @@ export default function MyNavbar() {
 
         {session.status == 'authenticated' && <>
         
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0 flex items-center gap-1" href={'/wishlist'}> <p>WishList</p> <CiHeart /></Link>
+
           <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/allorders'}>All Orders</Link>
 
-          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0 flex items-center gap-1" href={'/cart'}><CiShoppingCart  className="text-lg inline" /> <p>Cart</p></Link>
+          <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0 flex items-center gap-1" href={'/cart'}> <p>Cart</p>  <CiShoppingCart /></Link>
 
 
           <Link className="hover:text-green-500 mx-auto pb-3 md:pb-0" href={'/profile'}><CgProfile className="text-2xl" /></Link>

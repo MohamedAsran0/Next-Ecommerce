@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ProductType } from '@/types/product.type';
 import ProductLink from "../ProductLink/ProductLink";
 import AddToCartBtn from "../AddToCartBtn/AddToCartBtn";
+import WishListBtn from "../WishListBtn/WishListBtn";
 
 type ProductCardProps = {
     product: ProductType,
@@ -19,6 +20,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 renderImage={() => <Image width={250} height={200} priority={false} src={product.imageCover} alt={product.title} className="w-full h-64" />}
             >
                 <p className="absolute top-2 right-2 p-2 bg-amber-300">{product.ratingsAverage}</p>
+                <div className="absolute top-2 left-2 text-3xl hover:scale-105"><WishListBtn /></div>
                 <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {product.title.split(' ').slice(0, 2).join(' ')}
                 </h5>

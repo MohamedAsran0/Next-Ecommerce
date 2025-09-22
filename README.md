@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Fresh Cart  
 
-## Getting Started
+Fresh Cart is a modern e-commerce web application built with **Next.js**, **TailwindCSS**, and **TypeScript**.  
+It provides users with a smooth shopping experience, secure authentication, cart management, and seamless checkout (cash or credit).  
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🔑 **Authentication** – Login & Register with validation.  
+- 🛍️ **Product Listing** – Browse and search products.  
+- 🛒 **Cart System** – Add, update, and remove items from the cart.  
+- 💳 **Checkout** – Pay securely with **Cash** or **Credit**.  
+- 📦 **Orders** – View all past orders.  
+- 📱 **Responsive Design** – Fully optimized for mobile and desktop.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏗️ Tech Stack  
 
-## Learn More
+- **Frontend:** Next.js 14, React 18, TypeScript, TailwindCSS, ShadCN/UI  
+- **State Management:** React Hook Form, Zod (validation), React Query  
+- **Backend API:** Route Misr E-Commerce API
+- **Styling & UI:** TailwindCSS, SweetAlert2, React Spinners  
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Usage  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Register/Login to create an account.  
+- Browse products and add them to your cart.  
+- Go to the cart page to review items.  
+- Proceed to checkout and choose **Cash** or **Credit** payment.  
+- View all past orders in the **All Orders** page.  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛡️ Validation & Error Handling  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- ✅ Form validation powered by **Zod + React Hook Form**.  
+- ⚠️ Displays errors for invalid inputs (e.g., phone number format).  
+- 🔄 Global error handling for API requests. 

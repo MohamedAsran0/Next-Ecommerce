@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export default async function middleware(req: NextRequest) {
  
     // const jwt = await getToken({req});
-    const jwt = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+    const jwt = await getToken({ req, secret: process.env.NEXTAUTH_SECRET,cookieName: process.env.COOKIE_NAME });
 
     if(jwt) {
         
